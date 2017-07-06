@@ -21,12 +21,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        initToolbar();
-        initTabLayout();
-        initViewPager();
+        setToolbar();
+        setTabLayout();
+        setViewPager();
     }
 
-    private void initToolbar() {
+    private void setToolbar() {
         toolbar = (Toolbar) findViewById(R.id.toolBar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initTabLayout() {
+    private void setTabLayout() {
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_tab_globe_focus));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_tab_timeline));
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
     }
 
-    private void initViewPager() {
+    private void setViewPager() {
         // Initializing ViewPager
         viewPager = (ViewPager) findViewById(R.id.pager);
 
@@ -68,9 +68,9 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                int tabCount = tab.getPosition();
-                viewPager.setCurrentItem(tabCount);
-                switch (tabCount){
+                int tabPos = tab.getPosition();
+                viewPager.setCurrentItem(tabPos);
+                switch (tabPos){
                     case 0:
                         tabLayout.getTabAt(0).setIcon(R.drawable.ic_tab_globe_focus);
                         tabLayout.getTabAt(1).setIcon(R.drawable.ic_tab_timeline);

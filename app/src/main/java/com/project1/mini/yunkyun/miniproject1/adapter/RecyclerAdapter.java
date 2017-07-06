@@ -20,11 +20,11 @@ import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
     private Context context = null;
-    private List<TimelineItem> items = null;
+    private List<TimelineItem> itemList = null;
 
-    public RecyclerAdapter(Context context, List<TimelineItem> items) {
+    public RecyclerAdapter(Context context, List<TimelineItem> itemList) {
         this.context = context;
-        this.items = items;
+        this.itemList = itemList;
     }
 
     @Override
@@ -57,14 +57,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final TimelineItem item = items.get(position);
+        final TimelineItem item = itemList.get(position);
         holder.title.setText(item.getTitle());
         holder.content.setText(item.getContent());
     }
 
     @Override
     public int getItemCount() {
-        return this.items.size();
+        return this.itemList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
