@@ -1,6 +1,5 @@
 package com.project1.mini.yunkyun.miniproject1.adapter;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +11,7 @@ import android.widget.Toast;
 import com.project1.mini.yunkyun.miniproject1.R;
 import com.project1.mini.yunkyun.miniproject1.object.TimelineItem;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -19,12 +19,14 @@ import java.util.List;
  */
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
-    private Context context = null;
     private List<TimelineItem> itemList = null;
 
-    public RecyclerAdapter(Context context, List<TimelineItem> itemList) {
-        this.context = context;
-        this.itemList = itemList;
+    public RecyclerAdapter() {
+        this.itemList = new LinkedList<>();
+    }
+
+    public void addItem(TimelineItem item){
+        itemList.add(item);
     }
 
     @Override
@@ -34,7 +36,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
         final TimelineItem item = itemList.get(position);
         holder.title.setText(item.getTitle());
         holder.content.setText(item.getContent());
@@ -60,7 +62,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return this.itemList.size();
+        return itemList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

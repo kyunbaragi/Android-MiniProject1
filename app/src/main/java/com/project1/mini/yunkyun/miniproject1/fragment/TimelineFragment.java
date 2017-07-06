@@ -13,9 +13,6 @@ import com.project1.mini.yunkyun.miniproject1.R;
 import com.project1.mini.yunkyun.miniproject1.adapter.RecyclerAdapter;
 import com.project1.mini.yunkyun.miniproject1.object.TimelineItem;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import static com.project1.mini.yunkyun.miniproject1.R.id.rv;
 
 /**
@@ -23,9 +20,9 @@ import static com.project1.mini.yunkyun.miniproject1.R.id.rv;
  */
 
 public class TimelineFragment extends Fragment {
-    private List<TimelineItem> itemList;
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
+    private RecyclerAdapter adapter;
 
     public TimelineFragment(){}
 
@@ -41,26 +38,23 @@ public class TimelineFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        itemList = new LinkedList<>();
-        initTimelineContent();
-
-        RecyclerAdapter adapter = new RecyclerAdapter(getActivity(), itemList);
+        adapter = new RecyclerAdapter();
         recyclerView.setAdapter(adapter);
+        setTimelineContent();
         adapter.notifyDataSetChanged();
 
         return view;
     }
 
-    private void initTimelineContent() {
-        itemList = new LinkedList<>();
-        itemList.add(new TimelineItem("CHEEZE(치즈)_Mood Indigo(무드 인디고)",
+    private void setTimelineContent() {
+        adapter.addItem(new TimelineItem("CHEEZE(치즈)_Mood Indigo(무드 인디고)",
                 "게시일: 2017. 2. 17.\n"
-                        + "CHEEZE(치즈)_Mood Indigo(무드 인디고)\n"
-                        + "https://www.youtube.com/watch?v=xlBw-07WC1I\n"
-                        + "'여친이 무드인디고를 불러준다면?'"));
-        itemList.add(new TimelineItem());
-        itemList.add(new TimelineItem());
-        itemList.add(new TimelineItem());
-        itemList.add(new TimelineItem());
+                + "CHEEZE(치즈)_Mood Indigo(무드 인디고)\n"
+                + "https://www.youtube.com/watch?v=xlBw-07WC1I\n"
+                + "'여친이 무드인디고를 불러준다면?'"));
+        adapter.addItem(new TimelineItem());
+        adapter.addItem(new TimelineItem());
+        adapter.addItem(new TimelineItem());
+        adapter.addItem(new TimelineItem());
     }
 }
