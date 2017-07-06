@@ -30,36 +30,32 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.timeline_item, null);
-        ImageButton like = view.findViewById(R.id.btn_timeline_like);
-        ImageButton comment = view.findViewById(R.id.btn_timeline_comment);
-        ImageButton share = view.findViewById(R.id.btn_timeline_share);
-        like.setOnClickListener(new ImageButton.OnClickListener() {
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder holder, final int position) {
+        final TimelineItem item = itemList.get(position);
+        holder.title.setText(item.getTitle());
+        holder.content.setText(item.getContent());
+        holder.like.setOnClickListener(new ImageButton.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(view.getContext(), "'좋아요 버튼'을 누릅니다.", Toast.LENGTH_SHORT).show();
             }
         });
-        comment.setOnClickListener(new ImageButton.OnClickListener() {
+        holder.comment.setOnClickListener(new ImageButton.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(view.getContext(), "'댓글달기 버튼'을 누릅니다.", Toast.LENGTH_SHORT).show();
             }
         });
-        share.setOnClickListener(new ImageButton.OnClickListener() {
+        holder.share.setOnClickListener(new ImageButton.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(view.getContext(), "'공유하기 버튼'을 누릅니다.", Toast.LENGTH_SHORT).show();
             }
         });
-
-        return new ViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        final TimelineItem item = itemList.get(position);
-        holder.title.setText(item.getTitle());
-        holder.content.setText(item.getContent());
     }
 
     @Override
@@ -68,13 +64,19 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView title = null;
-        TextView content = null;
+        private TextView title = null;
+        private TextView content = null;
+        private ImageButton like = null;
+        private ImageButton comment = null;
+        private ImageButton share = null;
 
         public ViewHolder(View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.tv_timeline_item_title);
             content = itemView.findViewById(R.id.tv_timeline_item_content);
+            like = itemView.findViewById(R.id.btn_timeline_like);
+            comment = itemView.findViewById(R.id.btn_timeline_comment);
+            share = itemView.findViewById(R.id.btn_timeline_share);
         }
     }
 }
