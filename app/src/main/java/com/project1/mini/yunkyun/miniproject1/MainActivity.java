@@ -5,6 +5,9 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.project1.mini.yunkyun.miniproject1.adapter.TabPagerAdapter;
 
@@ -27,6 +30,21 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolBar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        ImageButton camera = (ImageButton) findViewById(R.id.btn_toolbar_camera);
+        ImageButton messenger = (ImageButton) findViewById(R.id.btn_toolbar_messenger);
+        camera.setOnClickListener(new ImageButton.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "카메라를 실행합니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
+        messenger.setOnClickListener(new ImageButton.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "메신저를 실행합니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void initTabLayout() {
