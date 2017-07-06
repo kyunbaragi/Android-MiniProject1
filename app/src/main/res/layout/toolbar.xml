@@ -13,7 +13,7 @@
         android:layout_height="match_parent">
 
         <ImageButton
-            android:id="@+id/button1"
+            android:id="@+id/btn_toolbar_camera"
             android:layout_width="30dp"
             android:layout_height="50dp"
             android:layout_alignParentLeft="true"
@@ -24,7 +24,7 @@
             android:src="@drawable/ic_toolbar_camera" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/et_toolbar_search"
             android:layout_width="250dp"
             android:layout_height="40dp"
             android:ems="10"
@@ -36,10 +36,10 @@
 
 
         <ImageButton
-            android:id="@+id/button2"
+            android:id="@+id/btn_toolbar_messenger"
             android:layout_width="30dp"
             android:layout_height="50dp"
-            android:layout_toRightOf="@id/editText"
+            android:layout_toRightOf="@id/et_toolbar_search"
             android:layout_centerVertical="true"
             android:layout_marginLeft="8dp"
             android:scaleType="centerInside"
