@@ -40,8 +40,8 @@ public class TimelineFragment extends Fragment {
 
         adapter = new RecyclerAdapter();
         recyclerView.setAdapter(adapter);
+
         setTimelineContent();
-        adapter.notifyDataSetChanged();
 
         return view;
     }
@@ -56,5 +56,7 @@ public class TimelineFragment extends Fragment {
         adapter.addItem(new TimelineItem());
         adapter.addItem(new TimelineItem());
         adapter.addItem(new TimelineItem());
+
+        adapter.notifyDataSetChanged();
     }
 }
