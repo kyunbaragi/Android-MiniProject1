@@ -28,8 +28,6 @@ public class TabPagerAdapter extends FragmentStatePagerAdapter {
                 fragment = new TimelineFragment();
                 break;
             case 1:
-                fragment = new EmptyFragment();
-                break;
             case 2:
                 fragment = new EmptyFragment();
                 break;
