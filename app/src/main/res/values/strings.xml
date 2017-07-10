@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MiniProject1</string>
+    <string name="run_camera">카메라를 실행합니다.</string>
+    <string name="run_messenger">메신저를 실행합니다.</string>
+    <string name="timeline_item_title">타임라인 아이템 타이틀</string>
+    <string name="timeline_item_content">타임라인 아이템 내용</string>
+    <string name="touch_timeline_like">\'좋아요 버튼\'을 누릅니다.</string>
+    <string name="touch_timeline_comment">\'댓글달기 버튼\'을 누릅니다.</string>
+    <string name="touch_timeline_share">\'공유하기 버튼\'을 누릅니다.</string>
 </resources>

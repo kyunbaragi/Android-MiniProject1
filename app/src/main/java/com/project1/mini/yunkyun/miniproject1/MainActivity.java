@@ -36,13 +36,13 @@ public class MainActivity extends AppCompatActivity {
         camera.setOnClickListener(new ImageButton.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "카메라를 실행합니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, getResources().getString(R.string.run_camera), Toast.LENGTH_SHORT).show();
             }
         });
         messenger.setOnClickListener(new ImageButton.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "메신저를 실행합니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, getResources().getString(R.string.run_messenger), Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -38,7 +38,7 @@ public class TimelineFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        adapter = new RecyclerAdapter();
+        adapter = new RecyclerAdapter(getContext());
         recyclerView.setAdapter(adapter);
 
         setTimelineContent();
@@ -52,10 +52,13 @@ public class TimelineFragment extends Fragment {
                 + "CHEEZE(치즈)_Mood Indigo(무드 인디고)\n"
                 + "https://www.youtube.com/watch?v=xlBw-07WC1I\n"
                 + "'여친이 무드인디고를 불러준다면?'"));
-        adapter.addItem(new TimelineItem());
-        adapter.addItem(new TimelineItem());
-        adapter.addItem(new TimelineItem());
-        adapter.addItem(new TimelineItem());
+
+        String title = getResources().getString(R.string.timeline_item_title);
+        String content = getResources().getString(R.string.timeline_item_content);
+        TimelineItem item = new TimelineItem(title, content);
+        for(int i = 0; i < 5; i++){
+            adapter.addItem(item);
+        }
 
         adapter.notifyDataSetChanged();
     }

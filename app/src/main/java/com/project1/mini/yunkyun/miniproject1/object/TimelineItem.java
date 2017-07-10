@@ -8,11 +8,6 @@ public class TimelineItem {
     private String title;
     private String content;
 
-    public TimelineItem(){
-        this.title = "타임라인 아이템 타이틀";
-        this.content = "타임라인 아이템 내용";
-    }
-
     public TimelineItem(String title, String content){
         this.title = title;
         this.content = content;

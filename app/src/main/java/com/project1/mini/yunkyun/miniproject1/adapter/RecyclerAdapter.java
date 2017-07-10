@@ -1,5 +1,6 @@
 package com.project1.mini.yunkyun.miniproject1.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,9 +21,11 @@ import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
     private List<TimelineItem> itemList = null;
+    private Context context = null;
 
-    public RecyclerAdapter() {
+    public RecyclerAdapter(Context context) {
         this.itemList = new LinkedList<>();
+        this.context = context;
     }
 
     public void addItem(TimelineItem item){
@@ -43,19 +46,19 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         holder.like.setOnClickListener(new ImageButton.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), "'좋아요 버튼'을 누릅니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, context.getResources().getString(R.string.touch_timeline_like), Toast.LENGTH_SHORT).show();
             }
         });
         holder.comment.setOnClickListener(new ImageButton.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), "'댓글달기 버튼'을 누릅니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, context.getResources().getString(R.string.touch_timeline_comment), Toast.LENGTH_SHORT).show();
             }
         });
         holder.share.setOnClickListener(new ImageButton.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), "'공유하기 버튼'을 누릅니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, context.getResources().getString(R.string.touch_timeline_share), Toast.LENGTH_SHORT).show();
             }
         });
     }
